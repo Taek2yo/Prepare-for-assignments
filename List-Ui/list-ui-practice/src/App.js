@@ -1,8 +1,11 @@
-import './App.css';
-
+import Accordian from "./components/Accordian";
+import Header from "./components/Header";
 function App() {
   return (
-    <div> List Ui Study </div>
+    <>
+      <Header/>
+      <Accordian/>
+    </>
   );
 }
 
