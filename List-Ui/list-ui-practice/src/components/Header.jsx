@@ -1,21 +1,23 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import SideBar from "./SideBar";
 
 const Header = () => {
   const [toggle, setToggle] = useState(false);
 
-  const ChangeBtn = () => {
+  const handleToggle = () => {
     setToggle(!toggle);
   };
-
+  
   return (
     <Container>
       <Title>List Ui</Title>
-      <Hamburger onClick={() => ChangeBtn()} >
+      <Hamburger onClick={() => handleToggle()} >
         <Line toggle={toggle}/>
         <Line toggle={toggle}/>
         <Line toggle={toggle}/>
       </Hamburger>
+      <SideBar handleToggle={handleToggle} toggle={toggle}/>
     </Container>
   );
 };
@@ -25,7 +27,7 @@ export default Header;
 const Container = styled.div`
   background-color: #999bc6;
   height: 100px;
-  box-shadow: 3px 3px 3px 3px gray;
+  box-shadow: 3px 3px 3px 3px #656890;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -44,6 +46,7 @@ const Hamburger = styled.div`
   height: 34px;
   cursor: pointer;
   margin-right: 30px;
+  z-index: 99;
 `;
 
 const Line = styled.div`
@@ -54,7 +57,7 @@ const Line = styled.div`
   left: 0;
   width: 100%;
   height: 4px;
-  background-color: #fff;
+  background-color: #EDEEFF;
   border-radius: 4px;
 
   &:nth-child(1) {
