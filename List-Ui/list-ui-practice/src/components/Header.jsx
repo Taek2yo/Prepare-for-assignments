@@ -34,6 +34,7 @@ const Container = styled.div`
 `;
 
 const Title = styled.div`
+  font-family: var(--font-Playfair-Display);
   color: white;
   font-size: 35px;
   font-weight: bold;

@@ -19,7 +19,10 @@ const SideBar = ({toggle, handleToggle}) =>{
 
     return(
         <Container disappear={!toggle} >
-        
+            <MenuWraper>
+                <Menu><span>Accordian</span></Menu>
+            </MenuWraper>
+            
         </Container>
     )
 }
@@ -45,7 +48,7 @@ const slideClose = keyframes`
 const Container = styled.div`
     width: 30.725rem;
     height: 100%;
-    background-color: #999bc6;
+    background-color: rgb(27, 38, 77);;
     position: fixed;
     z-index: 40;
     top: 0;
@@ -53,7 +56,7 @@ const Container = styled.div`
     bottom: 0;
     box-shadow: -8px 0px 5px -2px #656890;
     @media screen and (max-width: 768px){
-        width: 70%
+        width: 50%
     }
     animation-duration: 0.3s;
     animation-timing-function: ease-out;
@@ -64,4 +67,22 @@ const Container = styled.div`
       animation-name: ${slideClose};
     `}
     animation-fill-mode: forwards;
+`
+
+const MenuWraper = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding-top: 90px;
+`
+
+const Menu = styled.div`
+    font-size: 2.2rem;
+    font-family: var(--font-Playfair-Display);
+    font-weight: 700;
+    line-height: 1.1;
+    color: white;
+    padding: 20px;   
+    span{
+        cursor: pointer;
+    }
 `
