@@ -32,6 +32,7 @@ const Accordion = () => {
   };
 
   return (
+    <BG>
     <Container>
       <Wrapper>
         <Title>FAQ Accordion</Title>
@@ -48,10 +49,17 @@ const Accordion = () => {
         
       </Wrapper>
     </Container>
+    </BG>
   );
 };
 
 export default React.memo(Accordion);
+
+const BG = styled.div`
+  background-color: #656890;
+  padding: 30px;
+  padding-top: 40px;
+`
 
 const Container = styled.div`
   width: 450px;
@@ -59,16 +67,16 @@ const Container = styled.div`
   flex-direction: column;
   border: 1px solid gray;
   border-radius: 12px;
-  margin: 30px;
-  box-shadow: 0px 5px 10px rgba(90, 116, 148, 0.3);
+  margin: 0 auto;
+  box-shadow: 0px 5px 12px black;
   background-color: #fff;
   color: #475f7b;
-  overflow: hidden;
   padding: 1.25rem;
 `;
 
 const Wrapper = styled.div`
   text-align: center;
+  
 `;
 
 

@@ -27,7 +27,7 @@ const Container = styled.div`
   background-color: #999bc6;
   width: 100%;
   height: 90px;
-  box-shadow: 3px 3px 3px 3px #656890;
+  box-shadow: 3px 3px 3px 3px #454764;
   display: flex;
   align-items: center;
   justify-content: space-between;
