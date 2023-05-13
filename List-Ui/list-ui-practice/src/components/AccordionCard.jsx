@@ -28,7 +28,7 @@ const Card = styled.div`
   box-shadow: 2px 2px 2px 2px gainsboro;
   display: flex;
   flex-direction: column;
-  height: ${({ active }) => (active ? '250px' : '40px')};
+  height: ${({ active }) => (active ? '220px' : '40px')};
   overflow: hidden;
   transition: 0.4s ease;
 `;
