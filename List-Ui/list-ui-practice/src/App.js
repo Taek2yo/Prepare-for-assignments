@@ -1,10 +1,11 @@
-import Accordian from "./components/Accordian";
+import Accordion from "./components/Accordion";
 import Header from "./components/Header";
 function App() {
   return (
     <>
       <Header/>
-      <Accordian/>
+      <Accordion/>
+      
     </>
   );
 }

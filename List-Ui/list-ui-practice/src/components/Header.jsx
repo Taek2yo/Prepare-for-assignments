@@ -4,7 +4,6 @@ import SideBar from "./SideBar";
 
 const Header = () => {
   const [toggle, setToggle] = useState(false);
-
   const handleToggle = () => {
     setToggle(!toggle);
   };
@@ -26,11 +25,13 @@ export default Header;
 
 const Container = styled.div`
   background-color: #999bc6;
-  height: 100px;
+  width: 100%;
+  height: 90px;
   box-shadow: 3px 3px 3px 3px #656890;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: sticky;
 `;
 
 const Title = styled.div`
