@@ -3,14 +3,29 @@ import styled from "styled-components";
 import SideBar from "./SideBar";
 
 const Header = () => {
+  
   const [toggle, setToggle] = useState(false);
+  
   const handleToggle = () => {
     setToggle(!toggle);
   };
   
+  const scrollToTop =()=>{
+    let time = 4;
+    let scroll = window.setInterval(function(){
+      let pos = window.pageYOffset;
+      let step = 30;
+      if( pos > 0){
+        window.scrollTo( 0, pos - step)
+      } else {
+        window.clearInterval( scroll )
+      }
+    }, time)
+  }
+  
   return (
     <Container>
-      <Title>List Ui</Title>
+      <Title onClick={()=>scrollToTop()}>List Ui</Title>
       <Hamburger onClick={() => handleToggle()} >
         <Line toggle={toggle}/>
         <Line toggle={toggle}/>
@@ -41,6 +56,7 @@ const Title = styled.div`
   font-size: 35px;
   font-weight: bold;
   padding-left: 20px;
+  cursor: pointer;
 `;
 
 const Hamburger = styled.div`
