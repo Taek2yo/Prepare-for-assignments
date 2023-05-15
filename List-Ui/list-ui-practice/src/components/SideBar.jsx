@@ -20,6 +20,7 @@ const SideBar = ({toggle, handleToggle}) =>{
     return(
         <Container disappear={!toggle} >
             <MenuWraper>
+                <Menu><span>Carousel</span></Menu>
                 <Menu><span>Accordian</span></Menu>
             </MenuWraper>
             
