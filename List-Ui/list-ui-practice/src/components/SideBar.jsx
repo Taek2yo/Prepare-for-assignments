@@ -54,7 +54,7 @@ const Container = styled.div`
     top: 0;
     right: 0;
     bottom: 0;
-    box-shadow: -8px 0px 5px -2px #656890;
+    box-shadow: -8px 0px 5px -2px black;
     @media screen and (max-width: 768px){
         width: 50%
     }

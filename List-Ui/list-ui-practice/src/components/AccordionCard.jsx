@@ -6,9 +6,9 @@ const AccordionCard = (props) => {
   const { header, id, text } = dummy;
 
   return (
-    <Card active={active} onClick={() => handleToggle(id)}>
+    <Card active={active} >
       
-      <Header active={active}>
+      <Header active={active} onClick={() => handleToggle(id)}> 
         <Title>{header}</Title>
         <Arrow active={active}>▼</Arrow>
       </Header>

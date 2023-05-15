@@ -33,6 +33,7 @@ const Accordion = () => {
 
   return (
     <BG>
+      <div className="title">ACCORDION</div>
     <Container>
       <Wrapper>
         <Title>FAQ Accordion</Title>
@@ -57,8 +58,14 @@ export default React.memo(Accordion);
 
 const BG = styled.div`
   background-color: #656890;
-  padding: 30px;
-  padding-top: 40px;
+  height: 100vh;
+  text-align: center;
+  .title{
+    padding-top: 110px;
+    font-weight: bold;
+    font-size: 2.2rem;
+    font-family: var(--font-Playfair-Display);
+  }
 `
 
 const Container = styled.div`
@@ -71,7 +78,8 @@ const Container = styled.div`
   box-shadow: 0px 5px 12px black;
   background-color: #fff;
   color: #475f7b;
-  padding: 1.25rem;
+  padding: 22px;
+  margin-top: 22px;
 `;
 
 const Wrapper = styled.div`
