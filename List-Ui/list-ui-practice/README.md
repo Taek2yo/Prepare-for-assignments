@@ -5,3 +5,5 @@
 ## 2. Sidebar
 
 ## 3. Accordian
+
+## 4. Carousel
