@@ -1,4 +1,4 @@
-import React, { useState,useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import img1 from "../assets/img/astronaut.jpg";
 import img2 from "../assets/img/astronaut2.jpg";
@@ -32,46 +32,58 @@ const img = [
 ];
 
 const Carousel = () => {
-  // image width
   const [imageWidth, setImageWidth] = useState(0);
   const imageRef = useRef(null);
-  
+  const [slideX, setSlideX] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
+
   useEffect(() => {
     if (imageRef.current) {
       const width = imageRef.current.offsetWidth;
       setImageWidth(width);
     }
-  }, []);  
-  // slide
-  const [slideX, setSlideX] = useState(0);
-  
-  // Button
+  }, []);
+
   const toPrev = () => {
-    setSlideX((slideX) => slideX < 0 ? slideX + imageWidth : slideX);
+    setSlideX((slideX) => (slideX < 0 ? slideX + imageWidth : slideX));
+    setActiveIndex((prevIndex) => (prevIndex === 0 ? img.length - 1 : prevIndex - 1));
   };
 
   const toNext = () => {
-    setSlideX((slideX) => slideX > -imageWidth * 4 ? slideX - imageWidth : 0);
+    setSlideX((slideX) => (slideX > -imageWidth * (img.length - 1) ? slideX - imageWidth : 0));
+    setActiveIndex((prevIndex) => (prevIndex === img.length - 1 ? 0 : prevIndex + 1));
   };
-  
-  
+
+  const goToSlide = (index) => {
+    setSlideX(-index * imageWidth);
+    setActiveIndex(index);
+  };
 
   return (
     <BG>
       <div className="title">CAROUSEL</div>
       <SlideWrapper>
-        <PrevBtn onClick={()=>{toPrev()}}/>
+        <PrevBtn onClick={()=>{toPrev()}} />
         <Row>
-          <Wrap style={{ transform : `translateX(${slideX}px)`}}>
+          <Wrap style={{ transform: `translateX(${slideX}px)` }}>
             {img.map((item) => (
               <Card key={item.id}>
-                <img ref={imageRef} src={item.image} alt="Astronaut" loading="lazy"/>
+                <img ref={imageRef} src={item.image} alt="Astronaut" loading="lazy" />
               </Card>
             ))}
           </Wrap>
         </Row>
         <NextBtn onClick={()=>{toNext()}} />
       </SlideWrapper>
+      <Indicators>
+        {img.map((item, index) => (
+          <IndicatorDot
+            key={item.id}
+            active={activeIndex === index}
+            onClick={() => goToSlide(index)}
+          />
+        ))}
+      </Indicators>
     </BG>
   );
 };
@@ -138,4 +150,21 @@ const PrevBtn = styled(Button)`
 
 const NextBtn = styled(Button)`
   background-image: url(${next});
+`;
+
+const Indicators = styled.ul`
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin-top: 10px;
+  padding: 0;
+`;
+
+const IndicatorDot = styled.li`
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: ${({ active }) => (active ? "#000" : "#ccc")};
+  margin: 0 5px;
+  cursor: pointer;
 `;
